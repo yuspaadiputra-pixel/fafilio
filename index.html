@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fafilio Technology</title>
+
+  <!-- ===== FAVICON / TAB LOGO ===== -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+
+  <style>
+
+    /* ================= FOOTER ================= */
+.site-footer {
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.45;
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+    :root {
+      --bg-dark: #000;
+      --bg-light: #f5f5f7;
+      --text-dark: #1d1d1f;
+      --text-light: #f5f5f7;
+      --accent: #fbbf24;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* ================= NAVBAR ================= */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      position: absolute;
+      left: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 26px;
+    }
+
+    .nav-logo span {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    /* ================= SECTION ================= */
+    section {
+      min-height: 100vh;
+      padding: 120px 24px 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    .container {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      width: 260px;
+      margin-bottom: 36px;
+      opacity: 0.95;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 17px;
+      line-height: 1.75;
+      opacity: 0.88;
+      margin-bottom: 18px;
+    }
+
+    .links {
+      margin-top: 28px;
+    }
+
+    .links a {
+      margin: 0 16px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    /* ================= OVERVIEW 3 COLUMN ================= */
+.overview-section {
+  background: #f5f5f7;
+  padding: 140px 24px 120px;
+  text-align: center;
+}
+
+.overview-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.overview-title {
+  text-align: center;
+}
+
+.overview-subtitle {
+  text-align: center;
+  max-width: 760px;     /* biar ga kepanjangan */
+  margin: 0 auto 64px; /* INI KUNCI: center + spacing */
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+/* CARD */
+.overview-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.overview-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.overview-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+/* ICON */
+.overview-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 14px;
+  background: #0f1f45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overview-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: #ffffff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+    /* ================= PRICING ================= */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .plan {
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.1),
+        rgba(255,255,255,0.02)
+      );
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all .25s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.5);
+    }
+
+    .badge {
+      background: var(--accent);
+      color: #000;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: 800;
+      margin: 20px 0;
+    }
+
+    .plan ul {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .plan ul li {
+      margin-bottom: 10px;
+      font-size: 14.5px;
+      opacity: 0.85;
+    }
+
+    .plan button {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+/* ================= PRICING Mikrokontroler ================= */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .plan {
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.1),
+        rgba(255,255,255,0.02)
+      );
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all .25s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.5);
+    }
+
+    .badge {
+      background: var(--accent);
+      color: #000;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: 800;
+      margin: 20px 0;
+    }
+
+    .plan ul {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .plan ul li {
+      margin-bottom: 10px;
+      font-size: 14.5px;
+      opacity: 0.85;
+    }
+
+    .plan button {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+/* ================= CONTACT (FORM VERSION) ================= */
+.contact-section {
+  background: #f5f5f7;
+  padding: 160px 24px 120px;
+}
+
+.contact-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* LEFT */
+.contact-left h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.contact-left p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  opacity: 0.75;
+  max-width: 460px;
+  margin-bottom: 40px;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 28px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.contact-text {
+  font-size: 14.5px;
+}
+
+.contact-text span {
+  display: block;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* RIGHT FORM */
+.contact-form {
+  background: #0f1f45;
+  color: #fff;
+  padding: 48px;
+  border-radius: 22px;
+}
+
+.contact-form h3 {
+  font-size: 32px;
+  margin-bottom: 28px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group textarea {
+  border-radius: 16px;
+  resize: none;
+  height: 100px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 2px solid #60a5fa;
+}
+
+.contact-form button {
+  margin-top: 16px;
+  background: #38bdf8;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo { width: 180px; }
+      .nav-logo span { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#home" class="nav-logo">
+      <img src="LogoHeader.png" alt="Fafilio Logo">
+      <span>Fafilio</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#overview">Overview</a>
+      <a href="#detail">Price Web</a>
+      <a href="#Mikrokontroler">Price Mikrokontroler</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="dark">
+    <div class="container">
+      <img src="LogoFAN89.png" class="logo">
+      <h1>Fafilio Technology</h1>
+      <p>Fafilio adalah perusahaan teknologi dan solusi digital yang membantu bisnis bertransformasi secara efisien, cepat, dan terintegrasi.</p>
+
+      <div class="links">
+        <a href="#detail">Lihat Paket</a>
+        <a href="#contact">Hubungi Kami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="overview-section">
+  <div class="overview-container">
+
+    <h2 class="overview-title">Overview</h2>
+    <p class="overview-subtitle">
+      Menawarkan jasa pembuatan dan pengelolaan domain email serta domain website beserta layanan hosting, serta jasa pembuatan website dan konsultasi teknologi elektronik berbasis mikrokontroler untuk keperluan automasi dan monitoring.
+    </p>
+
+    <div class="overview-grid">
+
+      <!-- WHAT WE DO -->
+      <div class="overview-card fade-in">
+        <div class="overview-icon">
+          <!-- icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16v6H4zM4 14h10v6H4z"/>
+          </svg>
+        </div>
+        <h3>What We Do</h3>
+        <p>
+          Menyediakan layanan domain & email bisnis, website development,
+          hosting, serta sistem automasi dan monitoring berbasis teknologi.
+        </p>
+      </div>
+
+      <!-- HOW WE HELP -->
+      <div class="overview-card fade-in">
+        <div class="overview-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6z"/>
+          </svg>
+        </div>
+        <h3>How We Help</h3>
+        <p>
+          Membantu bisnis menyederhanakan proses operasional melalui
+          solusi digital yang efisien, scalable, dan mudah digunakan.
+        </p>
+      </div>
+
+      <!-- WHY FAFILIO -->
+      <div class="overview-card fade-in">
+        <div class="overview-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3l3 6 6 .9-4.5 4.4 1 6.2L12 17l-5.5 3.5 1-6.2L3 9.9 9 9z"/>
+          </svg>
+        </div>
+        <h3>Why Fafilio</h3>
+        <p>
+          Fokus pada solusi tepat guna, desain clean, dan pendekatan
+          fleksibel yang menyesuaikan kebutuhan nyata bisnis Anda.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- DETAIL / PRICING -->
+  <section id="detail" class="dark">
+    <div class="container">
+      <h2>Web Domain Plan</h2>
+
+      <div class="pricing-cards">
+
+        <div class="plan">
+          <div class="badge">Stater</div>
+          <div class="price">$130 / year</div>
+          <ul>
+            <li>300 GB NVMe Disk Space</li>
+            <li>125 GB Monthly Traffic</li>
+            <li>2 Hosted Domain(s)</li>
+            <li>30 Subdomains</li>
+            <li>Unlimited Parked Domains</li>
+            <li>100 E-mail Accounts</li>
+            <li>10 MySQL Databases</li>
+            <li>3 FTP Accounts</li>
+            <li>5 GB VPN Traffic</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+        <div class="plan">
+          <div class="badge">SOHO</div>
+          <div class="price">$220 / year</div>
+          <ul>
+            <li>Unlimited NVMe Disk Space</li>
+            <li>1 TB Monthly Traffic</li>
+            <li>4 Hosted Domain(s)</li>
+            <li>40 Subdomains</li>
+            <li>Unlimited Parked Domains</li>
+            <li>500 E-mail Accounts</li>
+            <li>10 MySQL Databases</li>
+            <li>1 FTP Accounts</li>
+            <li>5 GB VPN Traffic</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+        <div class="plan">
+          <div class="badge">Enterprise</div>
+          <div class="price">$300 / year</div>
+          <ul>
+            <li>Unlimited NVMe Disk Space</li>
+            <li>Unlimited Monthly Traffic</li>
+            <li>Unlimited Hosted Domain(s)</li>
+            <li>Unlimited Subdomains</li>
+            <li>Unlimited Parked Domains</li>
+            <li>Unlimited E-mail Accounts</li>
+            <li>Unlimited MySQL Databases</li>
+            <li>Unlimited FTP Accounts</li>
+            <li> 50 GB VPN Traffic</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- Price Mikrokontroler -->
+  <section id="Mikrokontroler" class="dark">
+    <div class="container">
+      <h2>Mikrokontroler</h2>
+
+      <div class="pricing-cards">
+
+        <div class="plan">
+          <div class="badge">Stater</div>
+          <div class="price">$130 / year</div>
+          <ul>
+            <li>300 GB NVMe Disk Space</li>
+            <li>125 GB Monthly Traffic</li>
+            <li>2 Hosted Domain(s)</li>
+            <li>30 Subdomains</li>
+            <li>Unlimited Parked Domains</li>
+            <li>100 E-mail Accounts</li>
+            <li>10 MySQL Databases</li>
+            <li>3 FTP Accounts</li>
+            <li>5 GB VPN Traffic</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+        <div class="plan">
+          <div class="badge">SOHO</div>
+          <div class="price">$220 / year</div>
+          <ul>
+            <li>Unlimited NVMe Disk Space</li>
+            <li>1 TB Monthly Traffic</li>
+            <li>4 Hosted Domain(s)</li>
+            <li>40 Subdomains</li>
+            <li>Unlimited Parked Domains</li>
+            <li>500 E-mail Accounts</li>
+            <li>10 MySQL Databases</li>
+            <li>1 FTP Accounts</li>
+            <li>5 GB VPN Traffic</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+        <div class="plan">
+          <div class="badge">Enterprise</div>
+          <div class="price">$300 / year</div>
+          <ul>
+            <li>Unlimited NVMe Disk Space</li>
+            <li>Unlimited Monthly Traffic</li>
+            <li>Unlimited Hosted Domain(s)</li>
+            <li>Unlimited Subdomains</li>
+            <li>Unlimited Parked Domains</li>
+            <li>Unlimited E-mail Accounts</li>
+            <li>Unlimited MySQL Databases</li>
+            <li>Unlimited FTP Accounts</li>
+            <li> 50 GB VPN Traffic</li>
+          </ul>
+          <button>Select Plan</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+
+  <div class="contact-wrapper">
+
+    <!-- LEFT -->
+    <div class="contact-left">
+      <h2>Contact Us</h2>
+      <p>
+        Jika Anda memiliki pertanyaan tentang layanan kami,
+        membutuhkan dukungan, atau ingin berbagi masukan,
+        tim kami siap membantu Anda di setiap langkah.
+      </p>
+
+      <div class="contact-info">
+
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-text">
+            info@fafilio.com
+            <span>Email</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-text">
+            fafilio.com
+            <span>Website</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-text">
+            +62 895 3780 00904
+            <span>Phone</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            Jakarta, Indonesia
+            <span>Location</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="contact-form">
+      <h3>Get in touch.</h3>
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Your name">
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@email.com">
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" placeholder="+62">
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Write your message"></textarea>
+      </div>
+
+      <button type="button">Submit</button>
+    </div>
+
+  </div>
+
+</section>
+<footer class="site-footer">
+  © 2026 Fafilio Technology. All rights reserved.
+</footer>
+</body>
+</html>
