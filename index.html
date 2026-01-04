@@ -95,6 +95,47 @@
 
     .nav-links a:hover { opacity: 1; }
 
+    /* ================= MOBILE NAV ================= */
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 24px;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* MOBILE MODE */
+@media (max-width: 768px) {
+  nav {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+
     /* ================= SECTION ================= */
     section {
       min-height: 100vh;
@@ -531,6 +572,25 @@
     </div>
   </nav>
 
+  <!-- NAVBAR Mobile-->
+  <nav>
+  <a href="#home" class="nav-logo">
+    <img src="LogoHeader.png" alt="Fafilio Logo">
+    <span>Fafilio</span>
+  </a>
+
+  <!-- HAMBURGER -->
+  <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#overview">Overview</a>
+    <a href="#detail">Price Web</a>
+    <a href="#Mikrokontroler">Price Mikrokontroler</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
   <!-- HERO -->
   <section id="home" class="dark">
     <div class="container">
@@ -811,5 +871,12 @@
 <footer class="site-footer">
   © 2026 Fafilio Technology. All rights reserved.
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+  }
+</script>
+
 </body>
 </html>
