@@ -343,70 +343,64 @@
     }
 
 /* ================= PRICING Mikrokontroler ================= */
-    .pricing-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-top: 40px;
-    }
+    /* ===== MEDIA SLIDER ===== */
+.media-slider {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+}
 
-    .plan {
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.1),
-        rgba(255,255,255,0.02)
-      );
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      transition: all .25s ease;
-    }
+.slider-track {
+  display: flex;
+  transition: transform .5s ease;
+}
 
-    .plan:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,.5);
-    }
+.slide {
+  min-width: 100%;
+}
 
-    .badge {
-      background: var(--accent);
-      color: #000;
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: inline-block;
-    }
+.slide img,
+.slide video {
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+  border-radius: 20px;
+  background: #000;
+}
 
-    .price {
-      font-size: 42px;
-      font-weight: 800;
-      margin: 20px 0;
-    }
 
-    .plan ul {
-      list-style: none;
-      margin-bottom: 24px;
-    }
+/* BUTTON */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 36px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
 
-    .plan ul li {
-      margin-bottom: 10px;
-      font-size: 14.5px;
-      opacity: 0.85;
-    }
+.slider-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
 
-    .plan button {
-      background: var(--accent);
-      color: #000;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-    }
+.prev { left: 12px; }
+.next { right: 12px; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .slide img,
+  .slide video {
+    height: 260px;
+  }
+}
+
 
 /* ================= CONTACT (FORM VERSION) ================= */
 .contact-section {
@@ -727,65 +721,53 @@
 
 <!-- Price Mikrokontroler -->
   <section id="Mikrokontroler" class="dark">
-    <div class="container">
-      <h2>Mikrokontroler</h2>
+  <div class="container">
 
-      <div class="pricing-cards">
+    <h2>Mikrokontroler</h2>
+    <p style="max-width:720px;opacity:.8;margin-bottom:48px;">
+      Showcase proyek mikrokontroler, IoT, dan automasi yang telah kami kembangkan
+      untuk berbagai kebutuhan industri dan bisnis.
+    </p>
 
-        <div class="plan">
-          <div class="badge">Stater</div>
-          <div class="price">$130 / year</div>
-          <ul>
-            <li>300 GB NVMe Disk Space</li>
-            <li>125 GB Monthly Traffic</li>
-            <li>2 Hosted Domain(s)</li>
-            <li>30 Subdomains</li>
-            <li>Unlimited Parked Domains</li>
-            <li>100 E-mail Accounts</li>
-            <li>10 MySQL Databases</li>
-            <li>3 FTP Accounts</li>
-            <li>5 GB VPN Traffic</li>
-          </ul>
-          <button>Select Plan</button>
+    <!-- MEDIA SLIDER -->
+    <div class="media-slider">
+      <button class="slider-btn prev" onclick="slide(-1)">‹</button>
+
+      <div class="slider-track" id="sliderTrack">
+
+        <!-- SLIDE 1 -->
+        <div class="slide">
+          <img src="IoT-Arduino.png" alt="IoT Dashboard">
         </div>
 
-        <div class="plan">
-          <div class="badge">SOHO</div>
-          <div class="price">$220 / year</div>
-          <ul>
-            <li>Unlimited NVMe Disk Space</li>
-            <li>1 TB Monthly Traffic</li>
-            <li>4 Hosted Domain(s)</li>
-            <li>40 Subdomains</li>
-            <li>Unlimited Parked Domains</li>
-            <li>500 E-mail Accounts</li>
-            <li>10 MySQL Databases</li>
-            <li>1 FTP Accounts</li>
-            <li>5 GB VPN Traffic</li>
-          </ul>
-          <button>Select Plan</button>
+        <!-- SLIDE 2 -->
+        <div class="slide">
+          <video src="Python.mp4" autoplay muted loop></video>
         </div>
 
-        <div class="plan">
-          <div class="badge">Enterprise</div>
-          <div class="price">$300 / year</div>
-          <ul>
-            <li>Unlimited NVMe Disk Space</li>
-            <li>Unlimited Monthly Traffic</li>
-            <li>Unlimited Hosted Domain(s)</li>
-            <li>Unlimited Subdomains</li>
-            <li>Unlimited Parked Domains</li>
-            <li>Unlimited E-mail Accounts</li>
-            <li>Unlimited MySQL Databases</li>
-            <li>Unlimited FTP Accounts</li>
-            <li> 50 GB VPN Traffic</li>
-          </ul>
-          <button>Select Plan</button>
+        <!-- SLIDE 3 -->
+        <div class="slide">
+          <img src="Schematicsa.png" alt="Automation System">
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide">
+          <img src="img/micro-3.jpg" alt="Embedded Device">
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="slide">
+          <video src="video/micro-demo2.mp4" autoplay muted loop></video>
         </div>
 
       </div>
+
+      <button class="slider-btn next" onclick="slide(1)">›</button>
     </div>
-  </section>
+
+  </div>
+</section>
+
 
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
@@ -877,6 +859,27 @@
     document.getElementById("navMenu").classList.toggle("active");
   }
 </script>
+
+<script>
+  const track = document.getElementById("sliderTrack");
+  const slides = document.querySelectorAll(".slide");
+  let index = 0;
+
+  function slide(direction) {
+    index += direction;
+
+    if (index < 0) {
+      index = slides.length - 1;
+    }
+
+    if (index >= slides.length) {
+      index = 0;
+    }
+
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+</script>
+
 
 </body>
 </html>
