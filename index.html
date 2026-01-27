@@ -16,6 +16,27 @@
 
   <style>
 
+  /* FIX TITLE CENTER */
+.card-scroll-section .container {
+  align-items: center;
+  text-align: center;
+}
+
+/* FULL WIDTH SLIDER */
+.carousel-outer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  position: relative;
+}
+
+/* FIX ARROW CLICK */
+.slider-arrow {
+  z-index: 999;
+  pointer-events: auto;
+}
     /* ================= FOOTER ================= */
 .site-footer {
   padding: 32px 24px;
@@ -27,11 +48,11 @@
 }
 
     :root {
-      --bg-dark: #000;
-      --bg-light: #f5f5f7;
-      --text-dark: #1d1d1f;
-      --text-light: #f5f5f7;
-      --accent: #fbbf24;
+      --bg: #ffffff;
+      --soft: #f5f5f7;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #2563eb;
     }
 
     * {
@@ -276,131 +297,124 @@
   }
 }
 
-    /* ================= PRICING ================= */
-    .pricing-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-top: 40px;
-    }
+/* ================= FINAL TESTIMONIAL (SAFE & ISOLATED) ================= */
 
-    .plan {
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.1),
-        rgba(255,255,255,0.02)
-      );
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      transition: all .25s ease;
-    }
+/* Lepas section detail dari flex global */
+#detail {
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+}
 
-    .plan:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,.5);
-    }
+/* Title tetap center & rapi */
+#detail > .container {
+  text-align: center;
+  padding-left: 24px;
+  padding-right: 24px;
+}
 
-    .badge {
-      background: var(--accent);
-      color: #000;
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: inline-block;
-    }
+/* Slider full viewport */
+#detail .carousel-outer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
 
-    .price {
-      font-size: 42px;
-      font-weight: 800;
-      margin: 20px 0;
-    }
-
-    .plan ul {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-
-    .plan ul li {
-      margin-bottom: 10px;
-      font-size: 14.5px;
-      opacity: 0.85;
-    }
-
-    .plan button {
-      background: var(--accent);
-      color: #000;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-/* ================= PRICING Mikrokontroler ================= */
-    /* ===== MEDIA SLIDER ===== */
-.media-slider {
+/* Wrapper */
+#detail .carousel-wrapper {
   position: relative;
-  max-width: 1100px;
-  margin: auto;
+}
+
+/* Viewport */
+#detail .slider-viewport {
+  overflow: hidden;
+}
+
+/* Track */
+#detail .slider-track {
+  display: flex;
+  gap: 42px;
+  transition: transform .6s ease;
+  padding-right: 24px;
+}
+
+/* Card */
+#detail .content-card {
+  flex: 0 0 240px;
+}
+
+/* Arrow */
+#detail .slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #111827;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+#detail .slider-arrow.left { left: 16px; }
+#detail .slider-arrow.right { right: 16px; }
+
+/* Dots */
+#detail .slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+#detail .slider-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+#detail .slider-dots span.active {
+  background: #111;
+}
+
+
+/* ===== FIX FULL WIDTH SLIDER ===== */
+.carousel-outer {
+  width: 100%;
+  overflow: hidden;
+  padding-left: 24px;
+}
+
+.carousel-wrapper {
+  max-width: 100%;
+  position: relative;
+}
+
+.slider-viewport {
   overflow: hidden;
 }
 
 .slider-track {
   display: flex;
-  transition: transform .5s ease;
+  gap: 28px;
+  transition: transform .6s ease;
 }
 
-.slide {
-  min-width: 100%;
+/* card width konsisten */
+.content-card {
+  flex: 0 0 340px;
 }
 
-.slide img,
-.slide video {
-  width: 100%;
-  height: 420px;
-  object-fit: contain;
-  border-radius: 20px;
-  background: #000;
+@media (max-width:900px) {
+.pricing-grid{
+  grid-template-columns: 1fr;
 }
-
-
-/* BUTTON */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.15);
-  border: none;
-  color: #fff;
-  font-size: 36px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
 }
-
-.slider-btn:hover {
-  background: rgba(255,255,255,0.3);
-}
-
-.prev { left: 12px; }
-.next { right: 12px; }
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .slide img,
-  .slide video {
-    height: 260px;
-  }
-}
-
 
 /* ================= CONTACT (FORM VERSION) ================= */
 .contact-section {
@@ -545,7 +559,130 @@
       .logo { width: 180px; }
       .nav-logo span { display: none; }
     }
+
+    /* ================= FIX KHUSUS TESTIMONIAL ================= */
+
+/* Lepaskan #detail dari flex global */
+#detail {
+  display: block;
+}
+
+/* Paksa judul benar-benar ke tengah layar */
+#detail > .container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Pastikan text full width */
+#detail .section-title,
+#detail .section-subtitle {
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== TESTIMONIAL CARD WIDE TEXT STYLE ===== */
+
+#detail .content-card {
+  flex: 0 0 520px;              /* LEBIH LEBAR */
+  min-height: 420px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 44px 42px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 18px;
+}
+
+/* ICON AT TOP */
+#detail .card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #6366f1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* TEXT / QUOTE */
+#detail .card-text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+/* TAGS */
+#detail .card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#detail .card-tags span {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+/* ===== FIX RUANG ATAS & BAWAH TESTIMONIAL ===== */
+#detail {
+  min-height: auto;          /* matikan 100vh */
+  padding-top: 100px;        /* atur manual */
+  padding-bottom: 100px;
+}
+#detail .content-card {
+  min-height: 520px;   /* sebelumnya 300+ */
+}
+
+/* ================= MOBILE TESTIMONIAL FIX ================= */
+@media (max-width: 768px) {
+
+  /* Card jadi full layar */
+  #detail .content-card {
+    flex: 0 0 85vw;
+    min-height: auto;
+    padding: 32px 24px;
+  }
+
+  /* Spasi antar card diperkecil */
+  #detail .slider-track {
+    gap: 20px;
+  }
+
+  /* Arrow dikecilkan & diturunin */
+  #detail .slider-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    top: 55%;
+  }
+
+  #detail .slider-arrow.left {
+    left: 8px;
+  }
+
+  #detail .slider-arrow.right {
+    right: 8px;
+  }
+
+  /* Dots agak dekat ke card */
+  #detail .slider-dots {
+    margin-top: 20px;
+  }
+}
+
   </style>
+ 
 </head>
 
 <body>
@@ -561,7 +698,6 @@
       <a href="#home">Home</a>
       <a href="#overview">Overview</a>
       <a href="#detail">Price Web</a>
-      <a href="#Mikrokontroler">Price Mikrokontroler</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -577,11 +713,10 @@
   <div class="nav-toggle" onclick="toggleMenu()">☰</div>
 
   <div class="nav-links" id="navMenu">
-    <a href="#home">Home</a>
-    <a href="#overview">Overview</a>
-    <a href="#detail">Price Web</a>
-    <a href="#Mikrokontroler">Price Mikrokontroler</a>
-    <a href="#contact">Contact</a>
+    <a href="#home">Beranda</a>
+    <a href="#overview">Tentang Kami</a>
+    <a href="#detail">layanan</a>
+    <a href="#contact">Hubungi Kami</a>
   </div>
 </nav>
 
@@ -589,12 +724,14 @@
   <section id="home" class="dark">
     <div class="container">
       <img src="LogoFAN89.png" class="logo">
-      <h1>Fafilio Technology</h1>
-      <p>Fafilio adalah perusahaan teknologi dan solusi digital yang membantu bisnis bertransformasi secara efisien, cepat, dan terintegrasi.</p>
+      <h1>PT Fafilio Technology</h1>
+      <p>Solusi Teknologi untuk Mendukung Pertumbuhan Bisnis Anda.
+        Kami membantu bisnis mengoptimalkan operasional melalui solusi digital yang efektif, fleksibel, dan terukur.
+      </p>
 
       <div class="links">
-        <a href="#detail">Lihat Paket</a>
-        <a href="#contact">Hubungi Kami</a>
+        <a href="#detail">Pelajari Lebih Lanjut</a>
+        <a href="#contact">Konsultasi Sekarang</a>
       </div>
     </div>
   </section>
@@ -605,7 +742,7 @@
 
     <h2 class="overview-title">Overview</h2>
     <p class="overview-subtitle">
-      Menawarkan jasa pembuatan dan pengelolaan domain email serta domain website beserta layanan hosting, serta jasa pembuatan website dan konsultasi teknologi elektronik berbasis mikrokontroler untuk keperluan automasi dan monitoring.
+      Fafilio adalah perusahaan teknologi yang berfokus pada penyediaan solusi digital untuk membantu bisnis meningkatkan efisiensi, kecepatan, dan kualitas operasional melalui pemanfaatan teknologi yang tepat guna.
     </p>
 
     <div class="overview-grid">
@@ -618,10 +755,10 @@
             <path d="M4 4h16v6H4zM4 14h10v6H4z"/>
           </svg>
         </div>
-        <h3>What We Do</h3>
+        <h3>Apa yang Kami Lakukan</h3>
         <p>
-          Menyediakan layanan domain & email bisnis, website development,
-          hosting, serta sistem automasi dan monitoring berbasis teknologi.
+          Solusi Teknologi untuk Kebutuhan Nyata
+Kami merancang, mengembangkan, dan mengelola solusi teknologi seperti sistem internal, website, serta integrasi digital yang disesuaikan dengan kebutuhan dan tujuan bisnis klien.
         </p>
       </div>
 
@@ -632,10 +769,10 @@
             <path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6z"/>
           </svg>
         </div>
-        <h3>How We Help</h3>
+        <h3>Mengapa Memilih Fafilio</h3>
         <p>
-          Membantu bisnis menyederhanakan proses operasional melalui
-          solusi digital yang efisien, scalable, dan mudah digunakan.
+          Berorientasi pada Dampak, Bukan Sekadar Tampilan
+Kami mengutamakan solusi yang dapat digunakan secara nyata, mudah dipahami oleh pengguna, dan memberikan dampak langsung terhadap proses bisnis klien.
         </p>
       </div>
 
@@ -646,10 +783,9 @@
             <path d="M12 3l3 6 6 .9-4.5 4.4 1 6.2L12 17l-5.5 3.5 1-6.2L3 9.9 9 9z"/>
           </svg>
         </div>
-        <h3>Why Fafilio</h3>
+        <h3>Fleksibel dan Siap Berkembang</h3>
         <p>
-          Fokus pada solusi tepat guna, desain clean, dan pendekatan
-          fleksibel yang menyesuaikan kebutuhan nyata bisnis Anda.
+          Sistem yang kami kembangkan bersifat fleksibel dan dapat disesuaikan dengan perkembangan bisnis, sehingga klien dapat terus bertumbuh tanpa harus mengganti sistem dari awal.
         </p>
       </div>
 
@@ -657,115 +793,128 @@
   </div>
 </section>
 
-  <!-- DETAIL / PRICING -->
-  <section id="detail" class="dark">
-    <div class="container">
-      <h2>Web Domain Plan</h2>
+<!-- DETAIL / TESTIMONIAL -->
+<section id="detail" class="card-scroll-section">
 
-      <div class="pricing-cards">
-
-        <div class="plan">
-          <div class="badge">Stater</div>
-          <div class="price">$130 / year</div>
-          <ul>
-            <li>300 GB NVMe Disk Space</li>
-            <li>125 GB Monthly Traffic</li>
-            <li>2 Hosted Domain(s)</li>
-            <li>30 Subdomains</li>
-            <li>Unlimited Parked Domains</li>
-            <li>100 E-mail Accounts</li>
-            <li>10 MySQL Databases</li>
-            <li>3 FTP Accounts</li>
-            <li>5 GB VPN Traffic</li>
-          </ul>
-          <button>Select Plan</button>
-        </div>
-
-        <div class="plan">
-          <div class="badge">SOHO</div>
-          <div class="price">$220 / year</div>
-          <ul>
-            <li>Unlimited NVMe Disk Space</li>
-            <li>1 TB Monthly Traffic</li>
-            <li>4 Hosted Domain(s)</li>
-            <li>40 Subdomains</li>
-            <li>Unlimited Parked Domains</li>
-            <li>500 E-mail Accounts</li>
-            <li>10 MySQL Databases</li>
-            <li>1 FTP Accounts</li>
-            <li>5 GB VPN Traffic</li>
-          </ul>
-          <button>Select Plan</button>
-        </div>
-
-        <div class="plan">
-          <div class="badge">Enterprise</div>
-          <div class="price">$300 / year</div>
-          <ul>
-            <li>Unlimited NVMe Disk Space</li>
-            <li>Unlimited Monthly Traffic</li>
-            <li>Unlimited Hosted Domain(s)</li>
-            <li>Unlimited Subdomains</li>
-            <li>Unlimited Parked Domains</li>
-            <li>Unlimited E-mail Accounts</li>
-            <li>Unlimited MySQL Databases</li>
-            <li>Unlimited FTP Accounts</li>
-            <li> 50 GB VPN Traffic</li>
-          </ul>
-          <button>Select Plan</button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-<!-- Price Mikrokontroler -->
-  <section id="Mikrokontroler" class="dark">
+  <!-- TITLE -->
   <div class="container">
-
-    <h2>Mikrokontroler</h2>
-    <p style="max-width:720px;opacity:.8;margin-bottom:48px;">
-      Showcase proyek mikrokontroler, IoT, dan automasi yang telah kami kembangkan
-      untuk berbagai kebutuhan industri dan bisnis.
+    <h2 class="section-title">Layanan Kami</h2>
+    <p class="section-subtitle">
+      Layanan Teknologi Terintegrasi untuk Meningkatkan Efisiensi Bisnis
     </p>
+  </div>
 
-    <!-- MEDIA SLIDER -->
-    <div class="media-slider">
-      <button class="slider-btn prev" onclick="slide(-1)">‹</button>
+  <!-- SLIDER -->
+  <div class="carousel-outer">
+    <div class="carousel-wrapper">
 
-      <div class="slider-track" id="sliderTrack">
+      <button class="slider-arrow left" type="button">‹</button>
+      <button class="slider-arrow right" type="button">›</button>
 
-        <!-- SLIDE 1 -->
-        <div class="slide">
-          <img src="IoT-Arduino.png" alt="IoT Dashboard">
-        </div>
+      <div class="slider-viewport">
+        <div class="slider-track" id="testimonialTrack">
+  
+          <!-- CARD 1 -->
+          <div class="content-card">
+            <div class="card-icon">★</div>
 
-        <!-- SLIDE 2 -->
-        <div class="slide">
-          <video src="video3.mp4" autoplay muted loop></video>
-        </div>
+            <p class="card-text">
+    “EIdentitas Profesional untuk Bisnis Anda
+Kami membantu pengadaan dan pengelolaan domain serta email bisnis yang aman dan profesional untuk meningkatkan kredibilitas perusahaan.”
+  </p>
 
-        <!-- SLIDE 3 -->
-        <div class="slide">
-          <img src="Schematicsa.png" alt="Automation System">
-        </div>
+  <div class="card-tags">
+    <span>Domain & Email Bisnis</span>
+  </div>
+</div>
 
-        <!-- SLIDE 4 -->
-        <div class="slide">
-          <img src="video2.mp4" alt="Embedded Device">
-        </div>
 
-        <!-- SLIDE 5 -->
-        <div class="slide">
-          <video src="video1.mp4" autoplay muted loop></video>
-        </div>
+          <!-- CARD 2 -->
+          <div class="content-card">
+            <div class="card-icon">●</div>
 
-      </div>
+            <p class="card-text">
+    “Website yang Informatif dan Relevan
+Kami mengembangkan website perusahaan yang responsif, mudah digunakan, dan sesuai dengan kebutuhan bisnis serta identitas brand Anda.”
+  </p>
 
-      <button class="slider-btn next" onclick="slide(1)">›</button>
-    </div>
+  <div class="card-tags">
+    <span>Website Perusahaan</span>
+  </div>
+</div>
+
+          <!-- CARD 3 -->
+          <div class="content-card">
+            <div class="card-icon">✦</div>
+
+            <p class="card-text">
+    “Solusi Digital Sesuai Kebutuhan
+Kami membangun sistem dan aplikasi yang dirancang khusus untuk mendukung proses bisnis, meningkatkan efisiensi, dan mempermudah operasional.”
+  </p>
+
+  <div class="card-tags">
+    <span>Pengembangan Sistem & Aplikasi</span>
+  </div>
+</div>
+
+          <!-- CARD 4 -->
+          <div class="content-card">
+            <div class="card-icon">⚡</div>
+
+            <p class="card-text">
+    “Pendampingan Teknologi yang Tepat
+Kami menyediakan layanan konsultasi IT untuk membantu perusahaan menentukan solusi teknologi yang paling sesuai dengan kebutuhan dan tujuan bisnis.”
+  </p>
+
+  <div class="card-tags">
+    <span>Konsultasi IT</span>
+  </div>
+</div>
+
+          <!-- CARD 5 -->
+          <div class="content-card">
+            <div class="card-icon">⬛</div>
+
+            <p class="card-text">
+    “Proses Lebih Cepat dan Terstruktur
+Kami membantu mengintegrasikan berbagai sistem serta melakukan otomasi proses kerja untuk mengurangi pekerjaan manual dan meningkatkan produktivitas.”
+  </p>
+
+  <div class="card-tags">
+    <span>Integrasi & Otomasi Sistem</span>
+  </div>
+</div>
+
+          <!-- CARD 6 -->
+          <div class="content-card">
+            <div class="card-icon">≋</div>
+
+            <p class="card-text">
+    “Dukungan Berkelanjutan
+Kami memberikan layanan pemeliharaan dan dukungan teknis untuk memastikan sistem dan website berjalan stabil, aman, dan selalu optimal.”
+  </p>
+
+  <div class="card-tags">
+    <span>Maintenance & Support</span>
+  </div>
+</div>
+
+          <!-- CARD 7 -->
+          <div class="content-card">
+            <div class="card-icon">W</div>
+
+            <p class="card-text">
+    “Disesuaikan dengan Kebutuhan Bisnis
+Setiap bisnis memiliki kebutuhan yang berbeda. Kami menyediakan solusi teknologi yang fleksibel dan dapat disesuaikan dengan kebutuhan spesifik klien.”
+  </p>
+
+  <div class="card-tags">
+    <span>Solusi Teknologi Kustom</span>
+  </div>
+</div>
 
   </div>
+<div class="slider-dots" id="testimonialDots"></div>
 </section>
 
 
@@ -859,29 +1008,77 @@
     document.getElementById("navMenu").classList.toggle("active");
   }
 </script>
-
 <script>
-  const track = document.getElementById("sliderTrack");
-  const slides = document.querySelectorAll(".slide");
+(() => {
+  const track = document.getElementById("testimonialTrack");
+  const cards = track.querySelectorAll(".content-card");
+  const dotsWrap = document.getElementById("testimonialDots");
+  const prevBtn = document.querySelector(".slider-arrow.left");
+  const nextBtn = document.querySelector(".slider-arrow.right");
+
+  const gap = 28;
+  const cardWidth = cards[0].offsetWidth + gap;
+  const total = cards.length;
+
   let index = 0;
 
-  function slide(direction) {
-    index += direction;
+  /* === CREATE DOTS === */
+  dotsWrap.innerHTML = "";
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    dotsWrap.appendChild(dot);
 
-    if (index < 0) {
-      index = slides.length - 1;
-    }
-
-    if (index >= slides.length) {
-      index = 0;
-    }
-
-    track.style.transform = `translateX(-${index * 100}%)`;
+    dot.addEventListener("click", () => {
+      index = i;
+      update();
+    });
   }
+
+  const dots = dotsWrap.children;
+
+  function updateDots() {
+    [...dots].forEach(d => d.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
+
+  function update() {
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+    updateDots();
+  }
+
+  /* === BUTTONS === */
+  nextBtn.addEventListener("click", () => {
+    index++;
+    if (index >= total) index = 0; // BALIK KE AWAL
+    update();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index--;
+    if (index < 0) index = total - 1; // LOMPAT KE AKHIR
+    update();
+  });
+
+  /* === AUTO SLIDE === */
+  let auto = setInterval(() => {
+    index++;
+    if (index >= total) index = 0;
+    update();
+  }, 4000);
+
+  track.addEventListener("mouseenter", () => clearInterval(auto));
+  track.addEventListener("mouseleave", () => {
+    auto = setInterval(() => {
+      index++;
+      if (index >= total) index = 0;
+      update();
+    }, 4000);
+  });
+
+})();
 </script>
 
 
 </body>
 </html>
-
-
