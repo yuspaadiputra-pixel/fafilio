@@ -970,33 +970,42 @@ Setiap bisnis memiliki kebutuhan yang berbeda. Kami menyediakan solusi teknologi
     </div>
 
     <!-- RIGHT FORM -->
-    <div class="contact-form">
-      <h3>Get in touch.</h3>
+    <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/xqeqnjlz"
+  method="POST"
+  class="contact-form"
+>
 
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" placeholder="Your name">
-      </div>
+  <h3>Get in touch.</h3>
 
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="you@email.com">
-      </div>
-
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="text" placeholder="+62">
-      </div>
-
-      <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="Write your message"></textarea>
-      </div>
-
-      <button type="button">Submit</button>
-    </div>
-
+  <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" name="name" placeholder="Your name" required>
   </div>
+
+  <div class="form-group">
+    <label>Email Address</label>
+    <input type="email" name="email" placeholder="you@email.com" required>
+  </div>
+
+  <div class="form-group">
+    <label>Phone Number</label>
+    <input type="text" name="phone" placeholder="+62">
+  </div>
+
+  <div class="form-group">
+    <label>Message</label>
+    <textarea name="message" placeholder="Write your message" required></textarea>
+  </div>
+
+  <!-- hidden info -->
+  <input type="hidden" name="_subject" value="New Contact from Fafilio Website">
+  <input type="hidden" name="_template" value="table">
+
+  <button type="submit">Submit</button>
+</form>
+
 
 </section>
 <footer class="site-footer">
