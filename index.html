@@ -53,6 +53,8 @@
       --text: #1d1d1f;
       --muted: #6e6e73;
       --accent: #2563eb;
+      --bg-dark: #020617;
+      --text-light: #ffffff;
     }
 
     * {
@@ -215,6 +217,16 @@
       font-size: 17px;
       font-weight: 600;
     }
+
+
+/* ================= HERO BACKGROUND ================= */
+#home.dark {
+  position: relative;
+  background-image: url("background.png"); /* GANTI PATH */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
     /* ================= OVERVIEW 3 COLUMN ================= */
 .overview-section {
@@ -679,6 +691,33 @@
   #detail .slider-dots {
     margin-top: 20px;
   }
+}
+
+#home.dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(2, 6, 23, 0.55),
+    rgba(2, 6, 23, 0.75)
+  );
+  z-index: 1;
+}
+
+#home.dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(2, 6, 23, 0.55),
+    rgba(2, 6, 23, 0.75)
+  );
+  z-index: 1;
+}
+
+#home.dark .container {
+  position: relative;
+  z-index: 2;
 }
 
   </style>
